@@ -1,0 +1,46 @@
+nginx:
+    image: rsahahw/xmaple_nginx
+    links:
+        - node1:node1
+        - node2:node2
+        - node3:node3
+    ports:
+        - "80:80"
+    volumes:
+        - /Users/rsaha/work/code/xmaple/incredibleguide/docker_infra/nginx/nginx.conf.d:/etc/nginx/conf.d:ro
+node1:
+    image: rsahahw/xmaple_node
+    links:
+        - redis
+        - mysql
+    ports:
+        - "8080"
+node2:
+    image: rsahahw/xmaple_node
+    links:
+        - redis
+        - mysql
+    ports:
+        - "8080"
+node3:
+    image: rsahahw/xmaple_node
+    links:
+        - redis
+        - mysql
+    ports:
+        - "8080"
+redis:
+    image: redis
+    ports:
+        - "6379"
+mysql:
+  image: mysql:latest
+  expose:
+    - "3306"
+  ports:
+    - "3307:3306"
+  environment:
+    MYSQL_DATABASE: database
+    MYSQL_ROOT_PASSWORD: admin123
+    MYSQL_USER: xmaple
+    MYSQL_PASSWORD: 
