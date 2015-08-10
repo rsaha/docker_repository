@@ -1,7 +1,7 @@
-# xmaplelab
+# Docker based Lab
 Configuration artifacts and source codes.
 
-Download/Clone all the files files from here under <whatever folder>incredibleguide
+Download/Clone all the files files from here under 
 
 
 
